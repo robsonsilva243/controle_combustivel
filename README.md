@@ -1,51 +1,49 @@
-Controle de Combustível - Machado Pré-Moldados
-Módulo desenvolvido para o teste prático de Desenvolvedor Full Stack Python Junior.
+⛽ Controle de Combustível - Machado Pré-Moldados
+Repositório desenvolvido para o teste prático de Desenvolvedor Full Stack Python Junior. O foco deste projeto foi a implementação de um fluxo de gestão de abastecimento e controle de estoque de tanques utilizando o framework Odoo 19 Community.
 
 🛠 Tecnologias e Versões
 Framework: Odoo 19.0 Community
 
-Linguagem: Python 3.12
+Linguagem: Python 3.12 (Downgrade realizado para garantir estabilidade)
 
 Banco de Dados: PostgreSQL
 
-🚀 Funcionalidades
-Cadastro de Tanques com controle de estoque.
+Sistema Operacional: macOS (Ambiente de desenvolvimento)
 
-Registro de abastecimentos vinculado a veículos/placas.
+🚀 Funcionalidades Implementadas
+Gestão de Tanques: Cadastro de tanques com controle de capacidade (padrão 6.000L) e monitoramento de estoque atual.
 
-Cálculo automático de valores (Litros x Valor Unitário).
+Registro de Abastecimentos: Vínculo com veículos/placas, horímetro/odômetro e data/hora.
 
-Regra de negócio: Desconto automático de estoque no momento do abastecimento.
+Cálculos Automáticos: O sistema calcula o valor total do abastecimento (Litros x Valor Unitário) em tempo real.
 
-Hierarquia de acesso: Grupos específicos para Motoristas e Administradores.
+Regra de Negócio (Estoque): Implementação de gatilho no ORM para desconto automático do combustível no estoque do tanque no momento da criação do registro.
 
-Texto Explicativo e Retorno Técnico
+Segurança e Permissões: Estrutura de grupos para Motoristas (registro), Analistas (relatórios) e Administradores (acesso total).
+
+📝 Retorno Técnico e Decisões de Projeto
 1. Estrutura do Módulo
-O módulo controle_combustivel foi estruturado seguindo as melhores práticas do Odoo:
+O módulo controle_combustivel segue o padrão MVC (Model-View-Controller) rigoroso do Odoo:
 
-Models: tanque.py (estoque) e abastecimento.py (lógica de consumo).
+Models: tanque.py e abastecimento.py definem a camada de dados e lógica de negócio.
 
-Views: Desenvolvidas com o novo padrão <list> do Odoo 19, garantindo modernidade e compatibilidade.
+Views: Foram desenvolvidas utilizando o novo padrão <list> oficial do Odoo 19, garantindo a compatibilidade com as futuras atualizações do framework.
 
-Segurança: Implementação de grupos de acesso para Motorista, Analista e Administrador via XML e CSV.
+Segurança: Configuração via ir.model.access.csv e security.xml para gestão de privilégios.
 
-2. Dificuldades e Evolução
-Ambiente Local: O primeiro contato com o Odoo 19 exigiu ajustes finos de infraestrutura.
+2. Dificuldades Superadas
+Ambiente Python: Identifiquei uma incompatibilidade de opcodes (LOAD_SMALL_INT) na versão 3.14 do Python (atualmente em desenvolvimento), o que causava erros críticos no safe_eval do Odoo. Realizei o downgrade estratégico para a versão 3.12, restabelecendo a estabilidade do sistema.
 
-Python 3.14: Identifiquei uma incompatibilidade de opcodes na versão 3.14 do Python e realizei o downgrade para a versão 3.12, garantindo estabilidade ao framework.
+Frontend SASS: Necessidade de configuração manual de compiladores no macOS para renderização correta do visual da versão Community.
 
-SASS/CSS: Configuração manual dos compiladores de estilo no macOS para garantir o carregamento correto da interface Community.
+3. Proposta de Integração NF-e/NFS-e
+Conforme solicitado no Passo 3 do edital, a estratégia sugerida para a Machado Pré-Moldados é:
 
-3. Melhorias Possíveis
-Criação de um painel de indicadores (Dashboards) para consumo médio por placa.
+Base: Adoção dos módulos de localização brasileira da OCA (l10n-brazil).
 
-Automatização de reabastecimento do tanque quando o estoque atingir um nível crítico.
+Workflow: Integração do recebimento de XMLs de compra de combustível para alimentação automática do estoque do tanque, eliminando a digitação manual de entradas.
 
-4. Proposta de Integração NF-e/NFS-e
-Para a Machado Pré-Moldados, a melhor estratégia de integração fiscal no Odoo Community é:
+Transmissão: Utilização de APIs de mensageria via Python para comunicação simplificada com os webservices da SEFAZ.
 
-Localização: Utilização dos módulos da OCA (L10n-Brazil) e do ecossistema BrERP.
-
-Automatização: Implementação de leitura de XML de entrada para que, ao receber uma nota de compra de combustível, o estoque do tanque seja incrementado automaticamente no módulo de controle.
-
-Transmissão: Uso de APIs de mensageria (como NFe.io ou Focus NFe) integradas via Python para garantir a emissão de notas de serviço e produto sem depender de softwares externos.
+Candidato: Robson
+Data de Conclusão: 17 de Fevereiro de 2026
