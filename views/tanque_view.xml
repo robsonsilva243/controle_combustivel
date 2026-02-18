@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_tanque_list" model="ir.ui.view">
+        <field name="name">combustivel.tanque.list</field>
+        <field name="model">combustivel.tanque</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="capacidade"/>
+                <field name="estoque_atual"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_tanque" model="ir.actions.act_window">
+        <field name="name">Tanques</field>
+        <field name="res_model">combustivel.tanque</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_combustivel_root" name="Combustível" sequence="10"/>
+    <menuitem id="menu_tanque" name="Tanques" parent="menu_combustivel_root" action="action_tanque"/>
+</odoo>

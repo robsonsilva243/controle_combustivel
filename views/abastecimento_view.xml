@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_abastecimento_list" model="ir.ui.view">
+        <field name="name">combustivel.abastecimento.list</field>
+        <field name="model">combustivel.abastecimento</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="data"/>
+                <field name="veiculo"/>
+                <field name="tanque_id"/>
+                <field name="litros"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_abastecimento" model="ir.actions.act_window">
+        <field name="name">Abastecimentos</field>
+        <field name="res_model">combustivel.abastecimento</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_abastecimento" 
+              name="Abastecimentos" 
+              parent="menu_combustivel_root" 
+              action="action_abastecimento" 
+              sequence="20"/>
+</odoo>

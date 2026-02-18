@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tanque_all,tanque.all,model_combustivel_tanque,,1,1,1,1
+access_abastecimento_all,abastecimento.all,model_combustivel_abastecimento,,1,1,1,1

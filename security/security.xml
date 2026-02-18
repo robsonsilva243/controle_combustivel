@@ -1,0 +1,23 @@
+<odoo>
+    <record id="module_category_combustivel" model="ir.module.category">
+        <field name="name">Controle de Combustível</field>
+    </record>
+
+    <record id="group_motorista" model="res.groups">
+        <field name="name">Motorista</field>
+        <field name="category_id" ref="module_category_combustivel"/>
+    </record>
+
+    <record id="group_analista" model="res.groups">
+        <field name="name">Analista</field>
+        <field name="category_id" ref="module_category_combustivel"/>
+        <field name="implied_ids" eval="[(4, ref('group_motorista'))]"/>
+    </record>
+
+    <record id="group_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="module_category_combustivel"/>
+        <field name="implied_ids" eval="[(4, ref('group_analista'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>
