@@ -1,7 +1,9 @@
 ⛽ Controle de Combustível - Machado Pré-Moldados
+
 Repositório desenvolvido para o teste prático de Desenvolvedor Full Stack Python Junior. O foco deste projeto foi a implementação de um fluxo de gestão de abastecimento e controle de estoque de tanques utilizando o framework Odoo 19 Community.
 
 🛠 Tecnologias e Versões
+
 Framework: Odoo 19.0 Community
 
 Linguagem: Python 3.12 (Downgrade realizado para garantir estabilidade)
@@ -11,6 +13,7 @@ Banco de Dados: PostgreSQL
 Sistema Operacional: macOS (Ambiente de desenvolvimento)
 
 🚀 Funcionalidades Implementadas
+
 Gestão de Tanques: Cadastro de tanques com controle de capacidade (padrão 6.000L) e monitoramento de estoque atual.
 
 Registro de Abastecimentos: Vínculo com veículos/placas, horímetro/odômetro e data/hora.
@@ -22,6 +25,7 @@ Regra de Negócio (Estoque): Implementação de gatilho no ORM para desconto aut
 Segurança e Permissões: Estrutura de grupos para Motoristas (registro), Analistas (relatórios) e Administradores (acesso total).
 
 📝 Retorno Técnico e Decisões de Projeto
+
 1. Estrutura do Módulo
 O módulo controle_combustivel segue o padrão MVC (Model-View-Controller) rigoroso do Odoo:
 
